@@ -58,8 +58,4 @@ Api.post("/snack/form", function(req, res, next) {
   })
 })
 
-// Api.get("/", function(req, res, next) {
-//   return res.json({ good_job: "get request works!" })
-// })
-
 module.exports = Api
