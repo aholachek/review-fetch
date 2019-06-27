@@ -12,4 +12,5 @@ app.use("/api", apiRouter)
 
 app.use(bundler.middleware())
 
-app.listen(Number(process.env.PORT || 4321))
+const server = app.listen(Number(process.env.PORT || 4321))
+server.setTimeout(100)

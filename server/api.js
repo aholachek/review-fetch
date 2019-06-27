@@ -14,7 +14,29 @@ Api.get("/", function(req, res, next) {
   return res.json({ good_job: "GET request works!" })
 })
 
-Api.get("/network-error", function(req, res, next) {})
+Api.get("/timeout/one", function(req, res, next) {
+  setTimeout(() => {
+    return res.json({
+      never_getting_triggered: "this will always time out first"
+    })
+  }, 200)
+})
+
+let retries = 0
+Api.post("/timeout/two", function(req, res, next) {
+  retries++
+  if (retries === 3) {
+    retries = 0
+    return res.json({
+      success: "third time's the charm"
+    })
+  }
+  setTimeout(() => {
+    return res.json({
+      never_getting_triggered: "this will always time out first"
+    })
+  }, 200)
+})
 
 Api.get("/error", function(req, res, next) {
   return res
