@@ -3,7 +3,7 @@ Sometimes it's helpful to review the basic building blocks of front end developm
 ## To get started
 1. Clone repo
 2. Run `yarn`
-3. Run `yarn start`. You should see a page of failing tests on localhost.
+3. Run `yarn start`. You should see a page of failing tests on `localhost:4321`.
 4. Write code in `index.js` to solve the tests.
 
 
