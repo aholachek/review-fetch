@@ -10,7 +10,7 @@ describe("fetch", () => {
         }
       })
     })
-
+ 
     it("When response.ok is false, (error code returned by the server >=300), should return an object with an error key with some details about the error", async () => {
       const result = await get("/api/error")
       expect(result).to.eql({
