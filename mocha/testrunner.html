@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<head>
+  <title>DOM Tests</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+</head>
+
+<body>
+
+  <div id="mocha"></div>
+  <div id="test"></div>
+
+  <form id="test-form" style="opacity:0">
+    <div>
+      <label for="user">Enter user name:</label>
+      <input type="text" id="user" name="user" value="jorge">
+    </div>
+    <div>
+      <label for="favorite_snack">Enter favorite snack:</label>
+      <input type="text" id="favorite_snack" name="favorite_snack" value="cheetos">
+    </div>
+    <input type="submit" value="Submit!">
+  </form>
+
+  <!-- the order is important here, we need to complete all setup before importing any tests -->
+  <script src="./test-set-up.js"></script>
+  <script src="./tests.js"></script>
+</body>
+
+</html>
