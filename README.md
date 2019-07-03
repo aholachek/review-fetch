@@ -9,10 +9,7 @@ Sometimes it's helpful to review the basic building blocks of front end developm
 ## Hints
 1. Use the [`debugger`](https://developers.google.com/web/tools/chrome-devtools/javascript/) statement liberally to introspect what is being returned by your `fetch` calls.
 2. The tests expect your function to return an object that looks like this:
-```js
-{ data: {}, error: {} }
-```
-with either `data` or `error` keys depending on whether the `fetch` request succesfully completed.
+`{ data: {}, error: {} }`, with either `data` or `error` keys depending on whether the `fetch` request succesfully completed.
 3. Possible solutions can be found in the `solutions` branch.
 
 ## Learn about (or review) `fetch`
