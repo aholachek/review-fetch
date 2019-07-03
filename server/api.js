@@ -14,6 +14,22 @@ Api.get("/", function(req, res, next) {
   return res.json({ good_job: "GET request works!" })
 })
 
+Api.get("/response-format", function(req, res, next) {
+  res.format({
+    "text/plain": function() {
+      res.send("What format do you want?")
+    },
+    "application/json": function() {
+      res.send({
+        good_job: "you correctly specified that you want json as a response"
+      })
+    },
+    default: function() {
+      res.send("What format do you want?")
+    }
+  })
+})
+
 Api.get("/timeout/one", function(req, res, next) {
   setTimeout(() => {
     return res.json({

@@ -2,7 +2,7 @@ import { get, post } from "./index"
 
 describe("fetch", () => {
   describe("get method", () => {
-    it("should make a get request to the provided endpoint and return an object with parsed json in the 'data' key ", async () => {
+    it("should make a GET request to the provided endpoint and return an object with parsed json in the 'data' key ", async () => {
       const result = await get("/api")
       expect(result).to.eql({
         data: {
@@ -11,10 +11,22 @@ describe("fetch", () => {
       })
     })
 
+    it("should specify that it always wants the response in JSON form ", async () => {
+      const result = await get("/api/response-format")
+      expect(result).to.eql({
+        data: {
+          good_job: "you correctly specified that you want json as a response"
+        }
+      })
+    })
+
     it("When response.ok is false, (error code returned by the server >=300), should return an object with an error key with some details about the error", async () => {
       const result = await get("/api/error")
       expect(result).to.eql({
         error: {
+          // this string, "http", is hardcoded by you to indicate that the request
+          // generated a server response
+          // (the next test is catching responses that do not manage to get a response from the network)
           type: "http",
           status: 500,
           body: {
@@ -28,10 +40,13 @@ describe("fetch", () => {
       const result = await get("/api/timeout/one")
       expect(result).to.eql({
         error: {
+          // in Firefox, this will be "NetworkError when attempting to fetch resource." instead
           type: "Failed to fetch"
         }
       })
     })
+
+    // helpful stack overflow link: https://stackoverflow.com/questions/1714786/query-string-encoding-of-a-javascript-object
     it("should, if provided a query key in an options object, submit that data as a url-encoded query string", async () => {
       const result = await get("/api", {
         query: {
