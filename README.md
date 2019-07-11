@@ -1,5 +1,7 @@
 Sometimes it's helpful to review the basic building blocks of front end development. In this repo you'll find a few short exercises you can do to (re)familiarize yourself with the `fetch` function.
 
+This repo asks you to write two wrapper functions, `get` and `post`, that make interacting with the base `fetch` api easier (and add some light additional functionality).
+
 ## To get started
 1. Clone repo
 2. Run `yarn`

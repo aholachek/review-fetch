@@ -87,7 +87,9 @@ describe("fetch", () => {
         }
       })
     })
-
+    // possibly helpful links:
+    // https://developer.mozilla.org/en-US/docs/Web/API/FormData/FormData
+    // https://stackoverflow.com/questions/42980645/easier-way-to-transform-formdata-into-query-string
     it('should accept a "form" key in the options argument, and submit that form data to the server', async () => {
       const result = await post("/api/snack/form", {
         form: document.querySelector("#test-form")
